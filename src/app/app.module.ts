@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
@@ -18,7 +18,8 @@ import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.com
     TodoListFooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
