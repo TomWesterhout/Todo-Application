@@ -8,7 +8,7 @@ import { Todo } from '../todo';
 })
 export class TodoListHeaderComponent implements OnInit {
 
-  newTodo = new Todo();
+  newTodo: Todo = new Todo();
 
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
@@ -19,7 +19,7 @@ export class TodoListHeaderComponent implements OnInit {
   }
 
   addTodo() {
-    this.add.emit(new Todo);
+    this.add.emit(this.newTodo);
     this.newTodo = new Todo();
   }
 

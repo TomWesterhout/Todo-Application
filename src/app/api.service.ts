@@ -20,7 +20,7 @@ export class ApiService {
   // The http request returns an rxjs observable. 
   // The map callback method first converts the response from a string to json format.
   // Then it returns an array of todo objects containered in an observable.
-  public getAllTodos() {
+  public getAllTodos(): Observable<Todo[]> {
     return this.http
       .get(API_URL + '/todos')
       .map(response => {
