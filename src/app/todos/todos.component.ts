@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../todo-data.service';
 import { Todo } from '../todo';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todos',
@@ -12,12 +13,15 @@ export class TodosComponent implements OnInit {
 
   todos: Todo[] = [];
 
-  constructor(private todoDataService: TodoDataService) {}
+  constructor(
+    private todoDataService: TodoDataService,
+    private route: ActivatedRoute
+  ) {}
 
   // The AppComponent requests all todo records from the API on instantiation.
   ngOnInit() {
-    this.todoDataService
-      .getAllTodos()
+    this.route.data
+      .map((data) => data['todos'])
       .subscribe((todos) => {
         this.todos = todos;
       });
