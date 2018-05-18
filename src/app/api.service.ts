@@ -17,6 +17,17 @@ export class ApiService {
   // It enables making http requests.
   constructor(private http: Http) { }
 
+  // Performs a HTTP post request to the '/sign-in' path.
+  public signIn(username: string, password: string) {
+    return this.http
+      .post(API_URL + '/sign-in', {
+        username,
+        password
+      })
+      .map(response => response.json())
+      .catch(this.handleError);
+  } 
+
   // The http request returns an rxjs observable. 
   // The map callback method first converts the response from a string to json format.
   // Then it returns an array of todo objects containered in an observable.
