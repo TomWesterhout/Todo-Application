@@ -17,7 +17,7 @@ export class ApiService {
   // It enables making http requests.
   constructor(private http: Http) { }
 
-  // Performs a HTTP post request to the '/sign-in' path.
+  // Performs a HTTP POST request to the '/sign-in' path.
   public signIn(username: string, password: string) {
     return this.http
       .post(API_URL + '/sign-in', {

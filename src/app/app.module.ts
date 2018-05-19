@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { TodoDataService } from './todo-data.service';
 import { ApiService } from './api.service';
+import { SessionService } from './session.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ApiService } from './api.service';
     FormsModule,
     HttpModule
   ],
-  providers: [TodoDataService, ApiService],
+  providers: [TodoDataService, ApiService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

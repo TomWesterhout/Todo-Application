@@ -18,7 +18,7 @@ server.use(bodyParser.json());
 server.post('/sign-in', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  if(username === 'demo' && password === 'demo') {
+  if(username === 'Test' && password === 'Test') {
     res.json({
       name: 'Test User',
       token: jwtToken
