@@ -1,3 +1,40 @@
-<p>
-  sign-in works!
-</p>
+<div class="sign-in-wrapper">
+  <form [formGroup]="frm">
+
+    <h1>Todos</h1>
+
+    <!-- Input for the username -->
+    <input type="text" formControlName="username" placeholder="Username">
+
+    <!-- Username validation error messages -->
+    <div class="input-errors" *ngIf="(frm.get('username').invalid && frm.get('username').touched) || showInputErrors">
+      <div *ngIf="frm.get('username').hasError('required')">
+        Please enter your username
+      </div>
+    </div>
+
+    <!-- Input for the password -->
+    <input type="password" formControlName="password" placeholder="Password">
+
+    <!-- Password validation error messages -->
+    <div class="input-errors" *ngIf="(frm.get('password').invalid && frm.get('password').touched) || showInputErrors">
+      <div *ngIf="frm.get('password').hasError('required')">
+        Please enter your password
+      </div>
+    </div>
+
+    <!-- Sign-in error messages -->
+    <div class="sign-in-error" *ngIf="hasFailed">
+      Invalid username and password
+    </div>
+
+    <!-- Sign-in button -->
+    <button (click)="doSignIn()" [disabled]="isBusy">
+      <ng-template [ngIf]="!isBusy">Sign in</ng-template>
+      <ng-template [ngIf]="isBusy">Signing in, please wait...</ng-template>
+    </button>
+
+    <p class="tip">You can sign in with username "Test" and password "Test".</p>
+
+  </form>
+</div>
