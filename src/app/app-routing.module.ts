@@ -3,12 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { TodosComponent } from './todos/todos.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TodosResolver } from './todos.resolver';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'todos',
+    redirectTo: 'sign-in',
     pathMatch: 'full'
+  },
+  {
+    path: 'sign-in',
+    component: SignInComponent
   },
   {
     path: 'todos',
